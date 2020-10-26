@@ -1,4 +1,5 @@
 <?php
+  $title = 'Top Page'
 ?>
 <html>
   <?php include './php/head.php' ?>
