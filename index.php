@@ -20,5 +20,6 @@
         </div>
       </div>
     </div>
+    <?php include './php/footer.php' ?>
   </body>
 </html>
