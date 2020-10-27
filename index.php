@@ -5,5 +5,20 @@
   <?php include './php/head.php' ?>
   <body>
     <?php include './php/navbar.php' ?>
+    <div class='hero is-info is-bold'>
+      <div class='container'>
+        <div class='hero-body'>
+          <h1 class='title'>Title</h1>
+          <div class='level'>
+            <div class='level-item'>
+              <a href="" class='button is-large is-info is-inverted is-outlined'>Login</a>
+            </div>
+            <div class='level-item'>
+              <a href="" class='button is-large is-info is-inverted'>Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
