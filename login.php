@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <span class='has-text-grey-dark'>未登録の方は<a href="/signup.php" class='has-text-link'>こちら</a></span>
+                <span class='has-text-grey-dark'>未登録の方は<a href="signup.php" class='has-text-link'>こちら</a></span>
             </div>
           </div>
         </div>

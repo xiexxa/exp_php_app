@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <span class='has-text-grey-dark'>登録済みの方は<a href="/login.php" class='has-text-link'>こちら</a></span>
+                <span class='has-text-grey-dark'>登録済みの方は<a href="login.php" class='has-text-link'>こちら</a></span>
             </div>
           </div>
         </div>
