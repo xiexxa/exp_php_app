@@ -1,5 +1,26 @@
 <?php
-  $title = 'Sign up'
+  $title = 'Sign up';
+  echo $_POST['email'];
+  echo $_POST['password'];
+  echo $_POST['password-confirm'];
+  echo password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $con = pg_connect("dbname='www' user='apache' password='password'");
+  $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ($1, $2, $3, $4, $5, $6)";
+  $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ('ad', 'asf', 'mail66@mail.com', 'pass', '2020-10-31 0:00:00', '2020-10-31 0:00:00');";
+  /*
+  $R = pg_query_params(
+    $con, $sql, 
+    array(
+      $_POST['email'], 
+      $_POST['email'], 
+      $_POST['email'], 
+      password_hash($_POST['password'], PASSWORD_DEFAULT), 
+      date("Y-m-d H:i:s"), 
+      date("Y-m-d H:i:s")
+    )
+    );
+  */
+  $R = pg_query($con, $sql);
 ?>
 <html>
   <?php include './php/head.php' ?>
@@ -10,7 +31,7 @@
         <div class='hero-body'>
           <h1 class='title'>Sign up</h1>
           <div class='notification has-background-white'>
-            <div class='content'>
+            <form action="signup.php" method="post" class='content'>
                 <div class='field'>
                     <label class='label has-text-info-dark'>email</h2>
                     <input type="email" name='email' class='input' placeholder='name@example.com'>
@@ -33,7 +54,7 @@
                     </div>
                 </div>
                 <span class='has-text-grey-dark'>登録済みの方は<a href="login.php" class='has-text-link'>こちら</a></span>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -41,3 +62,7 @@
     <?php include './php/footer.php' ?>
   </body>
 </html>
+<?php
+pg_free_result($R);
+pg_close($con);
+?>
