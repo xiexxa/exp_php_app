@@ -1,7 +1,7 @@
 <?php
   $title = 'Top Page';
-  include './php/connect.php';
-
+  include './php/functions.php';
+  connect();
 ?>
   </select>
 <html>

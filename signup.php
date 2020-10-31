@@ -1,6 +1,7 @@
 <?php
   $title = 'Sign up';
-  include './php/connect.php';
+  include './php/functions.php';
+  connect();
   $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ($1, $2, $3, $4, $5, $6)";
   $R = pg_query_params(
     $con, $sql, 
