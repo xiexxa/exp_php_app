@@ -1,5 +1,6 @@
 <?php
   $title = 'Login'
+  include './php/connect.php';
 ?>
 <html>
   <?php include './php/head.php' ?>

@@ -1,13 +1,7 @@
 <?php
   $title = 'Sign up';
-  echo $_POST['email'];
-  echo $_POST['password'];
-  echo $_POST['password-confirm'];
-  echo password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $con = pg_connect("dbname='www' user='apache' password='password'");
+  include './php/connect.php';
   $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ($1, $2, $3, $4, $5, $6)";
-  $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ('ad', 'asf', 'mail66@mail.com', 'pass', '2020-10-31 0:00:00', '2020-10-31 0:00:00');";
-  /*
   $R = pg_query_params(
     $con, $sql, 
     array(
@@ -19,8 +13,6 @@
       date("Y-m-d H:i:s")
     )
     );
-  */
-  $R = pg_query($con, $sql);
 ?>
 <html>
   <?php include './php/head.php' ?>
