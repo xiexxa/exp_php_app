@@ -1,14 +1,6 @@
 <?php
   $title = 'Top Page';
-  $con = pg_connect("dbname='www' user='apache' password='password'");
-  $sql = "select * from users";
-  $R = pg_query($con, $sql);
-  $rows = pg_num_rows($R);
-  echo "<select name='aa'>";
-  for ($i=0; $i<$rows; $i++) {
-    $dat = pg_fetch_array($R, $i);
-    echo "<option>".$dat['name']."</option>" ;
-  }
+  include './php/connect.php';
 
 ?>
   </select>
