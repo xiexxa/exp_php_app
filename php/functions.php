@@ -16,4 +16,11 @@ function redirect($page) {
   header('Location: '.$page);
   exit();
 }
+
+function login_checker($is_login) {
+  if ( !empty($_SESSION) ) {
+    $is_login = true;
+  }
+  return $is_login;
+}
 ?>

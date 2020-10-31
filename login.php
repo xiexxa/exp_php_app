@@ -1,6 +1,8 @@
 <?php
   $title = 'Login';
+  $is_login = false;
   include './php/functions.php';
+
   $con = connect();
   $sql = 'select * from users where email = $1';
   $R = pg_query_params($con, $sql, array($_POST['email']));

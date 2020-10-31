@@ -5,9 +5,7 @@
   $con = connect();
   echo $_SESSION['name'];
   session_start();
-  if ( !empty($_SESSION) ) {
-    $is_login = true;
-  }
+  $is_login = login_checker($is_login);
 ?>
   </select>
 <html>
@@ -16,7 +14,7 @@
     <?php include './php/navbar.php' ?>
     <?php 
       if ($is_login == true) {
-
+        include './php/index/home.php';
       } else {
         include './php/index/guest.php';
       }
