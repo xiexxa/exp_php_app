@@ -1,7 +1,8 @@
 <?php
   $title = 'Top Page';
   include './php/functions.php';
-  connect();
+  $con = connect();
+  echo $_SESSION['name'];
 ?>
   </select>
 <html>

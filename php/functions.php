@@ -9,6 +9,7 @@ function session_init () {
 
 function connect() {
   $con = pg_connect("dbname='www' user='apache' password='password'");
+  return $con;
 }
 
 function redirect($page) {

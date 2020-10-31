@@ -1,7 +1,7 @@
 <?php
   $title = 'Sign up';
   include './php/functions.php';
-  connect();
+  $con = connect();
   $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ($1, $2, $3, $4, $5, $6)";
   $R = pg_query_params(
     $con, $sql, 
@@ -13,7 +13,7 @@
       date("Y-m-d H:i:s"), 
       date("Y-m-d H:i:s")
     )
-    );
+  );
 ?>
 <html>
   <?php include './php/head.php' ?>
