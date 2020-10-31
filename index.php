@@ -1,29 +1,26 @@
 <?php
   $title = 'Top Page';
+  $is_login = false;
   include './php/functions.php';
   $con = connect();
   echo $_SESSION['name'];
+  session_start();
+  if ( !empty($_SESSION) ) {
+    $is_login = true;
+  }
 ?>
   </select>
 <html>
   <?php include './php/head.php' ?>
   <body>
     <?php include './php/navbar.php' ?>
-    <div class='hero is-info is-bold'>
-      <div class='container'>
-        <div class='hero-body'>
-          <h1 class='title'>Title</h1>
-          <div class='level'>
-            <div class='level-item'>
-              <a href="login.php" class='button is-large is-info is-inverted is-outlined'>Login</a>
-            </div>
-            <div class='level-item'>
-              <a href="signup.php" class='button is-large is-info is-inverted'>Sign up</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php 
+      if ($is_login == true) {
+
+      } else {
+        include './php/index/guest.php';
+      }
+    ?>
     <?php include './php/footer.php' ?>
   </body>
 </html>
