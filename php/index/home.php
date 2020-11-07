@@ -38,7 +38,7 @@
           </div>
           <p class="menu-label">Menu</p>
           <ul class="menu-list">
-            <li><a href="">My Page</a></li>
+            <li><a href="user.php">My Page</a></li>
             <li><a href="">Notifications</a></li>
             <li><a href="">Settings</a></li>
           </ul>
