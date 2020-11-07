@@ -20,9 +20,29 @@
       }
     ?>
     <?php include './php/footer.php' ?>
+    <div id="app">
+      <p>{{msg}}</p>
+    </div>
   </body>
 </html>
 <?php
 pg_free_result($R);
 pg_close($con);
 ?>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+new Vue({
+  el: "#app",
+  data: {
+    msg: "Welcome"
+  },
+  methods: {
+    sayHello() {
+      this.msg = 'hello'
+    }
+  },
+  mounted () {
+
+  }
+})
+</script>
