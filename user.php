@@ -24,7 +24,15 @@
   }
   var_dump($articles);
 ?>
-  </select>
+
+<?php
+// フォロー数を取得する
+$sql = 'select count(*) from follows where follow_user_id = $1';
+$R = pg_query_params($con, $sql, array($user['id']));
+$follow_count = pg_fetch_array($R);
+echo 'フォロー数';
+echo $follow_count[0];
+?>
 <html>
   <?php include './php/head.php' ?>
   <body>
@@ -42,7 +50,7 @@
                   <div class="container">
                     <p class="title"><?php xss($user['screen_name']) ?></p>
                     <p class="subtitle">@<?php xss($user['name']) ?></p>
-                    <input type="button" class="button" value="follow" @click="sendFollowRequest">
+                    <button class="button" ref="focusFollowButton" value="<?php echo xss($user['name']) ?>" @click="sendFollowRequest">follow</button>
                   </div>
                 </div>
               </div>
@@ -88,12 +96,17 @@ pg_close($con);
 new Vue({
     el: '#user',
     data: {
-        logoutModal: true
+        logoutModal: true,
     },
     methods:{
       sendFollowRequest: function () {
-        axios.get('./php/api/follow.php')
+        let name = this.$refs.focusFollowButton.value
+        console.log('name: :: '+name);
+        axios.post('./php/api/follow.php', {
+          name: name
+        })
           .then(res => {
+            console.log('Ajax受信')
             console.log(res.data)
           })
       }
