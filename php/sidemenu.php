@@ -38,7 +38,9 @@
         <li><a href="user.php">My Page</a></li>
         <li><a href="">Notifications</a></li>
         <li><a href="">Settings</a></li>
+        <?php if ($is_login == true) : ?>
         <li @click="clickLogout"><a>Logout</a></li>
+        <?php endif; ?>
         <div :class='[logoutModal === true ? "modal" : "modal is-active"]'>
             <div class="modal-background" @click="clickLogout"></div>
             <div class="modal-card">

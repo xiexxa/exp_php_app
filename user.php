@@ -12,13 +12,18 @@
   <?php include './php/head.php' ?>
   <body>
     <?php include './php/navbar.php' ?>
-    <?php 
-      if ($is_login == true) {
-        include './php/index/home.php';
-      } else {
-        include './php/index/guest.php';
-      }
-    ?>
+    
+    <div class='has-background-light'>
+      <div class='container has-background-white'>
+        <div class="columns">
+          <?php include './php/sidemenu.php'; ?>
+          <div class="column is-7">
+            <p>HELLO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <?php include './php/footer.php' ?>
     <div id="app">
       <p>{{msg}}</p>
@@ -29,19 +34,3 @@
 pg_free_result($R);
 pg_close($con);
 ?>
-<script>
-new Vue({
-  el: "#app",
-  data: {
-    msg: "Welcome"
-  },
-  methods: {
-    sayHello() {
-      this.msg = 'hello'
-    }
-  },
-  mounted () {
-
-  }
-});
-</script>
