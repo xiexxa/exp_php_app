@@ -11,7 +11,7 @@
         <a class='button is-light' @click="clickNewPost">新規投稿</a>
         <div :class='[newPostModal === true ? "modal" : "modal is-active"]'>
             <div class="modal-background" @click="clickNewPost"></div>
-            <div class="modal-card">
+            <form action="php/newpost.php" method="post" class="modal-card">
                 <div class="modal-card-head">
                     <p>新規投稿</p>
                 </div>
@@ -23,7 +23,7 @@
                     <button class="button" @click="clickNewPost">Cancel</button>
                     <input type="submit" class='button is-info' value="投稿する" v-bind:disabled="!cantSend"></input>
                 </div>
-            </div>
+            </form>
             <button class="modal-close is-large" aria-label="close" @click="clickNewPost"></button>
         </div>
         </div>
