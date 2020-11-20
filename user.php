@@ -15,16 +15,14 @@
 ?>
 
 <?php
-  $sql = 'select id, body, created_at from articles where user_id = $1';
+  $sql = 'select id, body, user_id, created_at from articles where user_id = $1';
   $R = pg_query_params($con, $sql, array($user['id']));  
   $n = pg_num_rows($R);
   echo $n;
-  for ($i=0; $i<$n; $i++) {
-    $articles = pg_fetch_array($R, $i); 
-    echo '<p>';
-    var_dump($articles);
-    echo '</p>';
+  for ($i=$n-1; $i>=0; $i--) {
+    $articles[] = pg_fetch_array($R, $i);
   }
+  var_dump($articles);
 ?>
   </select>
 <html>
@@ -61,7 +59,9 @@
                 </div>
               </div>
               <!-- article -->
-              <?php include './php/article.php' ?>
+              <?php foreach ($articles as $article) : ?>
+                <?php include './php/article.php' ?>
+              <?php  endforeach; ?>
             <?php else: ?>
             <div class="notification is-danger">
               <p>そのようなユーザは存在しません。</p>
