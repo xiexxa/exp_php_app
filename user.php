@@ -27,27 +27,33 @@
           <?php include './php/sidemenu.php'; ?>
           <div class="column is-7">
             <?php // ----- User.php body ----- ?>
-            <div class="hero is-info is-bold">
-              <div class="hero-body">
-                <div class="container">
-                  <p class="title">User name</p>
-                  <p class="subtitle">@ID</p>
+            <?php if (!empty($user)) : ?>
+              <div class="hero is-info is-bold">
+                <div class="hero-body">
+                  <div class="container">
+                    <p class="title"><?php xss($user['screen_name']) ?></p>
+                    <p class="subtitle">@<?php xss($user['name']) ?></p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="level">
-            <div class="level-left"></div>
-              <div class="level-right">
-                <a class="level-item" href="">
-                  <p class="heading">Follow</p>
-                  <p class="subtitle">10</p>
-                </a>
-                <a class="level-item" href="">
-                  <p class="heading">Follower</p>
-                  <p class="subtitle">10</p>
-                </a>
+              <div class="level">
+              <div class="level-left"></div>
+                <div class="level-right">
+                  <a class="level-item" href="">
+                    <p class="heading">Follow</p>
+                    <p class="subtitle">10</p>
+                  </a>
+                  <a class="level-item" href="">
+                    <p class="heading">Follower</p>
+                    <p class="subtitle">10</p>
+                  </a>
+                </div>
               </div>
+            <?php else: ?>
+            <div class="notification is-danger">
+              <p>そのようなユーザは存在しません。</p>
             </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
