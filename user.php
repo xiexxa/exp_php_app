@@ -60,6 +60,8 @@
                   </a>
                 </div>
               </div>
+              <!-- article -->
+              <?php include './php/article.php' ?>
             <?php else: ?>
             <div class="notification is-danger">
               <p>そのようなユーザは存在しません。</p>
