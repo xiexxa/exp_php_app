@@ -23,4 +23,8 @@ function login_checker($is_login) {
   }
   return $is_login;
 }
+
+function xss($s) {
+  echo htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+}
 ?>
