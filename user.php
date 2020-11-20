@@ -9,11 +9,22 @@
 ?>
 
 <?php
-  $sql = 'select name, screen_name from users where name = $1';
+  $sql = 'select id, name, screen_name from users where name = $1';
   $R = pg_query_params($con, $sql, array($_GET['name']));
   $user = pg_fetch_array($R);
-  var_dump($user);
-  xss($user['name'])
+?>
+
+<?php
+  $sql = 'select id, body, created_at from articles where user_id = $1';
+  $R = pg_query_params($con, $sql, array($user['id']));  
+  $n = pg_num_rows($R);
+  echo $n;
+  for ($i=0; $i<$n; $i++) {
+    $articles = pg_fetch_array($R, $i); 
+    echo '<p>';
+    var_dump($articles);
+    echo '</p>';
+  }
 ?>
   </select>
 <html>
