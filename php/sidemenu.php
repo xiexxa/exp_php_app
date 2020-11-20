@@ -1,5 +1,5 @@
 <div class="column is-3">
-    <menu class="is-hidden-touch">
+    <menu class="is-hidden-touch" id="sidemenu">
         <div class="hero is-info">
         <div class="hero-body">
             <article class="media">
@@ -38,7 +38,30 @@
         <li><a href="user.php">My Page</a></li>
         <li><a href="">Notifications</a></li>
         <li><a href="">Settings</a></li>
-        <li><a href="">Logout</a></li>
+        <li @click="clickLogout"><a>Logout</a></li>
+        <div :class='[logoutModal === true ? "modal" : "modal is-active"]'>
+            <div class="modal-background" @click="clickLogout"></div>
+            <div class="modal-content">
+                <div class="notification">
+                    This is message
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close" @click="clickLogout"></button>
+        </div>
         </ul>
     </menu>
 </div>
+
+<script>
+new Vue({
+    el: '#sidemenu',
+    data: {
+        logoutModal: true
+    },
+    methods:{
+        clickLogout: function () {
+            this.logoutModal = !this.logoutModal
+        }
+    }
+})
+</script>
