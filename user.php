@@ -34,7 +34,7 @@
       <div class='container has-background-white'>
         <div class="columns">
           <?php include './php/sidemenu.php'; ?>
-          <div class="column is-7">
+          <div class="column is-7" id="user">
             <?php // ----- User.php body ----- ?>
             <?php if (!empty($user)) : ?>
               <div class="hero is-info is-bold">
@@ -42,6 +42,7 @@
                   <div class="container">
                     <p class="title"><?php xss($user['screen_name']) ?></p>
                     <p class="subtitle">@<?php xss($user['name']) ?></p>
+                    <input type="button" class="button" value="follow" @click="sendFollowRequest">
                   </div>
                 </div>
               </div>
@@ -82,3 +83,20 @@
 pg_free_result($R);
 pg_close($con);
 ?>
+
+<script>
+new Vue({
+    el: '#user',
+    data: {
+        logoutModal: true
+    },
+    methods:{
+      sendFollowRequest: function () {
+        axios.get('./php/api/follow.php')
+          .then(res => {
+            console.log(res.data)
+          })
+      }
+    }
+})
+</script>

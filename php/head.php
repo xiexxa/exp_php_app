@@ -5,4 +5,5 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="stylesheet/bulma.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
