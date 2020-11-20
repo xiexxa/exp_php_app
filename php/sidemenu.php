@@ -41,9 +41,18 @@
         <li @click="clickLogout"><a>Logout</a></li>
         <div :class='[logoutModal === true ? "modal" : "modal is-active"]'>
             <div class="modal-background" @click="clickLogout"></div>
-            <div class="modal-content">
-                <div class="notification">
-                    This is message
+            <div class="modal-card">
+                <div class="modal-card-head">
+                    <p>ログアウト</p>
+                </div>
+                <div class="modal-card-body">
+                    <span>
+                        ログアウトしますか？
+                    </span>
+                </div>
+                <div class="modal-card-foot">
+                    <button class="button" @click="clickLogout">Cancel</button>
+                    <a class="button is-danger" href="logout.php">Logout</a>
                 </div>
             </div>
             <button class="modal-close is-large" aria-label="close" @click="clickLogout"></button>
