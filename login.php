@@ -10,7 +10,11 @@
 
   if ( password_verify($_POST['password'], $user['password']) ) {
     // 認証成功
-    session_init();
+    session_start();
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['name'] = $user['name'];
+    $_SESSION['screen_name'] = $user['screen_name'];
+    $_SESSION['email'] = $user['email'];
     redirect('index.php');
   } else {
     // 認証失敗

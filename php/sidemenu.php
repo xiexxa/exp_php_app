@@ -35,7 +35,7 @@
         </div>
         <p class="menu-label">Menu</p>
         <ul class="menu-list">
-        <li><a href="user.php">My Page</a></li>
+        <li><a href="user.php?name=<?php echo $_SESSION['name'] ?>">My Page</a></li>
         <li><a href="">Notifications</a></li>
         <li><a href="">Settings</a></li>
         <?php if ($is_login == true) : ?>

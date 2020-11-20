@@ -7,6 +7,7 @@
   session_start();
   $is_login = login_checker($is_login);
 ?>
+<?php var_dump($_SESSION) ?>
   </select>
 <html>
   <?php include './php/head.php' ?>
