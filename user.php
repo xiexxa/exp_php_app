@@ -9,9 +9,24 @@
 ?>
 
 <?php
-  $sql = 'select id, name, screen_name from users where name = $1';
-  $R = pg_query_params($con, $sql, array($_GET['name']));
-  $user = pg_fetch_array($R);
+  $user = getNameToUserData($con, $_GET['name']);
+
+  $is_follow = false;
+  if ($_SESSION['id'] == $user['id']) {
+    $is_follow = 'me';
+  }
+  $sql = 'select id from follows where follow_user_id = $1 and followed_user_id = $2';
+  $R = pg_query_params(
+    $con, $sql,
+    array(
+      $_SESSION['id'],
+      $user['id']
+    )
+  );
+  $n = pg_num_rows($R);
+  if ($n >= 1) {
+    $is_follow = true;
+  }
 ?>
 
 <?php
@@ -50,7 +65,12 @@ echo $follow_count[0];
                   <div class="container">
                     <p class="title"><?php xss($user['screen_name']) ?></p>
                     <p class="subtitle">@<?php xss($user['name']) ?></p>
-                    <button class="button" ref="focusFollowButton" value="<?php echo xss($user['name']) ?>" @click="sendFollowRequest">follow</button>
+                    <?php if ($is_follow === true) : ?>
+                      <button class="button is-info" ref="focusFollowButton" value="<?php echo xss($user['name']) ?>" @click="sendFollowRequest">フォロー中</button>
+                    <?php elseif ($is_follow == 'me') : ?>
+                    <?php else : ?>
+                      <button class="button" ref="focusFollowButton" value="<?php echo xss($user['name']) ?>" @click="sendFollowRequest">フォローする</button>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>

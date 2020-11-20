@@ -32,4 +32,11 @@ function dateformat($time) {
   $datetime = new DateTime($time);
   return $datetime->format('Y年m月d日 H:i:s');
 }
+
+function getNameToUserData($con, $name) {
+  $sql = 'select id, name, screen_name from users where name = $1';
+  $R = pg_query_params($con, $sql, array($name));
+  $user = pg_fetch_array($R);
+  return $user;
+}
 ?>
