@@ -6,6 +6,16 @@
     <a href="." class='navbar-item'><h3 class='is-size-4'>Title</h3></a>
     </div>
     <div class='navbar-end is-hidden-touch'>
+    <div class="navbar-item">
+        <form class="field has-addons" method="get" action="search.php">
+            <div class="control">
+                <input type="text" :class='[searchboxOverFlag === true ? "input is-hovered" : "input is-light"]' placeholder="検索ワードを入力" name="searchbox" v-on:mouseover="searchboxOver" v-on:mouseleave="searchboxOver">
+            </div>
+            <div class="control">
+                <input type="submit" class="button is-link is-light" value="検索">
+            </div>
+        </form>
+    </div>
     <div class='navbar-item'>
         <div class='buttons'>
         <a class='button is-light' @click="clickNewPost">
@@ -44,11 +54,15 @@ new Vue({
     data: {
         newPostModal: true,
         newText: '',
-        cantSend: false
+        cantSend: false,
+        searchboxOverFlag: false
     },
     methods: {
         clickNewPost: function () {
             this.newPostModal = !this.newPostModal
+        },
+        searchboxOver: function () {
+            this.searchboxOverFlag = !this.searchboxOverFlag
         }
     },
     watch: {
