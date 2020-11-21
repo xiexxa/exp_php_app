@@ -63,20 +63,12 @@
 
 <?php
 // フォロー数を取得する
-$sql = 'select count(*) from follows where follow_user_id = $1';
-$R = pg_query_params($con, $sql, array($user['id']));
-$follow_count = pg_fetch_array($R);
-$follow_count = $follow_count[0];
-echo 'フォロー数';
-echo $follow_count;
+$follow_count = getFollowCount($con, $user['id']);
 ?>
 
 <?php
 // フォロワー数を取得する
-$sql = 'select count(*) from follows where followed_user_id = $1';
-$R = pg_query_params($con, $sql, array($user['id']));
-$follower_count = pg_fetch_array($R);
-$follower_count = $follower_count[0];
+$follower_count = getFollowerCount($con, $user['id']);
 ?>
 
 <?php

@@ -1,3 +1,7 @@
+<?php
+$my_follow_count = getFollowCount($con, $_SESSION['id']);
+$my_follower_count = getFollowerCount($con, $_SESSION['id']);
+?>
 <div class="column is-3">
     <menu class="is-hidden-touch" id="sidemenu">
         <div class="hero is-info">
@@ -10,8 +14,8 @@
             </figure>
             <div class="media-content">
                 <div class="content">
-                <span>sc_name</span>
-                <span>@name</span>
+                <span class="has-text-weight-bold"><?php xss($_SESSION['screen_name']) ?></span>
+                <span>@<?php xss($_SESSION['name']) ?></span>
                 </div>
             </div>
             </article>
@@ -22,13 +26,13 @@
             <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Follow</p>
-                <p class="subtitle">10</p>
+                <p class="subtitle"><?php echo $my_follow_count ?></p>
             </div>
             </div>
             <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Followers</p>
-                <p class="subtitle">10</p>
+                <p class="subtitle"><?php echo $my_follower_count ?></p>
             </div>
             </div>
         </div>

@@ -39,4 +39,20 @@ function getNameToUserData($con, $name) {
   $user = pg_fetch_array($R);
   return $user;
 }
+
+function getFollowCount($con, $user_id) {
+  $sql = 'select count(*) from follows where follow_user_id = $1';
+  $R = pg_query_params($con, $sql, array($user_id));
+  $follow_count = pg_fetch_array($R);
+  $follow_count = $follow_count[0];
+  return $follow_count;
+}
+
+function getFollowerCount($con, $user_id) {
+  $sql = 'select count(*) from follows where followed_user_id = $1';
+  $R = pg_query_params($con, $sql, array($user_id));
+  $follower_count = pg_fetch_array($R);
+  $follower_count = $follower_count[0];
+  return $follower_count;
+}
 ?>
