@@ -3,7 +3,6 @@
   $is_login = false;
   include './php/functions.php';
   $con = connect();
-  echo $_SESSION['name'];
   session_start();
   $is_login = login_checker($is_login);
 ?>
@@ -37,7 +36,6 @@
   for ($i=$n-1; $i>=0; $i--) {
     $articles[] = pg_fetch_array($R, $i);
   }
-  var_dump($articles);
 ?>
 
 <?php
@@ -45,8 +43,17 @@
 $sql = 'select count(*) from follows where follow_user_id = $1';
 $R = pg_query_params($con, $sql, array($user['id']));
 $follow_count = pg_fetch_array($R);
+$follow_count = $follow_count[0];
 echo 'フォロー数';
-echo $follow_count[0];
+echo $follow_count;
+?>
+
+<?php
+// フォロワー数を取得する
+$sql = 'select count(*) from follows where followed_user_id = $1';
+$R = pg_query_params($con, $sql, array($user['id']));
+$follower_count = pg_fetch_array($R);
+$follower_count = $follower_count[0];
 ?>
 <html>
   <?php include './php/head.php' ?>
@@ -75,22 +82,32 @@ echo $follow_count[0];
                 </div>
               </div>
               <div class="level">
-              <div class="level-left"></div>
+                <div class="level-left"></div>
                 <div class="level-right">
-                  <a class="level-item" href="">
-                    <p class="heading">Follow</p>
-                    <p class="subtitle">10</p>
+                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>">
+                    <p class="heading <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>">Post</p>
+                    <p class="subtitle <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follow_count) ?></p>
                   </a>
-                  <a class="level-item" href="">
-                    <p class="heading">Follower</p>
-                    <p class="subtitle">10</p>
+                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follow' ?>">
+                    <p class="heading <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>">Follow</p>
+                    <p class="subtitle <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follow_count) ?></p>
+                  </a>
+                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follower' ?>">
+                    <p class="heading <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>">Follower</p>
+                    <p class="subtitle <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follower_count) ?></p>
                   </a>
                 </div>
               </div>
-              <!-- article -->
-              <?php foreach ($articles as $article) : ?>
-                <?php include './php/article.php' ?>
-              <?php  endforeach; ?>
+              <?php if (empty($_GET['page'])) : ?>
+                <!-- article -->
+                <?php foreach ($articles as $article) : ?>
+                  <?php include './php/article.php' ?>
+                <?php  endforeach; ?>
+              <?php elseif ($_GET['page'] == 'follow') : ?>
+                <p>フォロー一蘭</p>
+              <?php elseif ($_GET['page'] == 'follower') : ?>
+                <p>フォロワー一蘭</p>
+              <?php endif; ?>
             <?php else: ?>
             <div class="notification is-danger">
               <p>そのようなユーザは存在しません。</p>
