@@ -8,11 +8,19 @@
     <div class='navbar-end is-hidden-touch'>
     <div class='navbar-item'>
         <div class='buttons'>
-        <a class='button is-light' @click="clickNewPost">新規投稿</a>
+        <a class='button is-light' @click="clickNewPost">
+            <span class="icon is-medium has-text-ghost">
+                <i class="fas fa-pen-nib"></i>
+            </span>
+            <span>新規投稿</span>
+        </a>
         <div :class='[newPostModal === true ? "modal" : "modal is-active"]'>
             <div class="modal-background" @click="clickNewPost"></div>
             <form action="php/newpost.php" method="post" class="modal-card">
                 <div class="modal-card-head">
+                    <span class="icon is-medium has-text-ghost">
+                        <i class="fas fa-pen-nib"></i>
+                    </span>
                     <p>新規投稿</p>
                 </div>
                 <div class="modal-card-body">

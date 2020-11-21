@@ -49,6 +49,9 @@ $my_follower_count = getFollowerCount($con, $_SESSION['id']);
             <div class="modal-background" @click="clickLogout"></div>
             <div class="modal-card">
                 <div class="modal-card-head">
+                    <span class="icon is-medium has-text-ghost">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </span>
                     <p>ログアウト</p>
                 </div>
                 <div class="modal-card-body">
