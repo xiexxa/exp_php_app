@@ -20,7 +20,6 @@
                     <p>{{newText.length}}/140</p>
                 </div>
                 <div class="modal-card-foot">
-                    <button class="button" @click="clickNewPost">Cancel</button>
                     <input type="submit" class='button is-info' value="投稿する" v-bind:disabled="!cantSend"></input>
                 </div>
             </form>

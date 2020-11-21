@@ -107,17 +107,23 @@ $article_count = $article_count[0];
               <div class="level">
                 <div class="level-left"></div>
                 <div class="level-right">
-                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>">
-                    <p class="heading <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>">Post</p>
-                    <p class="subtitle <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($article_count) ?></p>
+                  <a class="level-item has-text-centered" href="user.php?name=<?php echo xss($user['name']) ?>">
+                    <div>
+                      <p class="heading <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>">Post</p>
+                      <p class="subtitle <?php empty($_GET['page']) ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($article_count) ?></p>
+                    </div>
                   </a>
-                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follow' ?>">
-                    <p class="heading <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>">Follow</p>
-                    <p class="subtitle <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follow_count) ?></p>
+                  <a class="level-item has-text-centered" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follow' ?>">
+                    <div>
+                      <p class="heading <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>">Follow</p>
+                      <p class="subtitle <?php $_GET['page'] == 'follow' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follow_count) ?></p>
+                    </div>
                   </a>
-                  <a class="level-item" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follower' ?>">
-                    <p class="heading <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>">Follower</p>
-                    <p class="subtitle <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follower_count) ?></p>
+                  <a class="level-item has-text-centered" href="user.php?name=<?php echo xss($user['name']) ?>&page=<?php echo 'follower' ?>">
+                    <div>
+                      <p class="heading <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>">Follower</p>
+                      <p class="subtitle <?php $_GET['page'] == 'follower' ? print 'has-text-weight-bold' : print '' ?>"><?php echo xss($follower_count) ?></p>
+                    </div>
                   </a>
                 </div>
               </div>

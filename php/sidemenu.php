@@ -31,7 +31,7 @@ $my_follower_count = getFollowerCount($con, $_SESSION['id']);
             </div>
             <div class="level-item has-text-centered">
             <div>
-                <p class="heading">Followers</p>
+                <p class="heading">Follower</p>
                 <p class="subtitle"><?php echo $my_follower_count ?></p>
             </div>
             </div>
@@ -57,7 +57,7 @@ $my_follower_count = getFollowerCount($con, $_SESSION['id']);
                     </span>
                 </div>
                 <div class="modal-card-foot">
-                    <button class="button" @click="clickLogout">Cancel</button>
+                    <button class="button is-ghost" @click="clickLogout">Cancel</button>
                     <a class="button is-danger" href="logout.php">Logout</a>
                 </div>
             </div>
