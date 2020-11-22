@@ -131,12 +131,12 @@ $article_count = $article_count[0];
                   <?php include './php/article.php' ?>
                 <?php  endforeach; ?>
               <?php elseif ($_GET['page'] == 'follow') : ?>
-                <p>フォロー一蘭</p>
+                <h2 class="subtitle">フォロー中</h2>
                 <?php  foreach ($follows as $user) :?>
                   <?php include './php/userdata.php' ?>
                 <?php endforeach; ?>
               <?php elseif ($_GET['page'] == 'follower') : ?>
-                <p>フォロワー一蘭</p>
+                <h2 class="subtitle">フォロワー</h2>
                 <?php  foreach ($followers as $user) :?>
                   <?php include './php/userdata.php' ?>
                 <?php endforeach; ?>
