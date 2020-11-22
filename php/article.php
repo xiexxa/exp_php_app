@@ -27,9 +27,9 @@ $usernames = pg_fetch_array($R);
         </div>
         <div class="level-right">
             <span class="is-size-7"><?php echo dateformat($article['created_at']) ?></span>
-            <span class="icon is-medium has-text-ghost" @click="deleteModalOpen(<?php echo $article['id'] ?>)">
+            <a class="icon is-medium has-text-dark" @click="deleteModalOpen(<?php echo $article['id'] ?>)">
                 <i class="fas fa-trash"></i>
-            </span>
+            </a>
         </div>
         </nav>
     </div>
