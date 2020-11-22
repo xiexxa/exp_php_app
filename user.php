@@ -130,6 +130,22 @@ $article_count = $article_count[0];
                 <?php foreach ($articles as $article) : ?>
                   <?php include './php/article.php' ?>
                 <?php  endforeach; ?>
+                <div :class='[deleteModal === true ? "modal" : "modal is-active" ]'>
+                  <div class="modal-background" @click="deleteModalOpen(-1)"></div>
+                  <div class="modal-card">
+                    <div class="modal-card-head">
+                      <p>削除</p>
+                    </div>
+                    <div class="modal-card-body">
+                      <p>{{deleteArticleId}}</p>
+                      <p>削除しますか?</p>
+                    </div>
+                    <div class="modal-card-foot">
+                      <button class="button is-danger is-light" @click="sendDeleteRequest()">削除</button>
+                    </div>
+                  </div>
+                  <button class="modal-close is-large" aria-label="close" @click="deleteModalOpen(-1)"></button>
+                </div>
               <?php elseif ($_GET['page'] == 'follow') : ?>
                 <h2 class="subtitle">フォロー中</h2>
                 <?php  foreach ($follows as $user) :?>
@@ -167,6 +183,8 @@ new Vue({
     el: '#user',
     data: {
         logoutModal: true,
+        deleteArticleId: '',
+        deleteModal: true
     },
     methods:{
       sendFollowRequest: function () {
@@ -179,7 +197,22 @@ new Vue({
             console.log('Ajax受信')
             console.log(res.data)
           })
+      },
+      deleteModalOpen: function (id) {
+        this.deleteArticleId = id
+        this.deleteModal = !this.deleteModal
+        console.log(this.deleteArticleId)
+      },
+      sendDeleteRequest: function () {
+        axios.post('./php/api/delete.php', {
+          articleId: this.deleteArticleId
+        })
+          .then(res => {
+            console.log('Ajax received')
+            console.log(res.data)
+          })
       }
     }
 })
 </script>
+<script type="text/javascript" src="js/app.js"></script>

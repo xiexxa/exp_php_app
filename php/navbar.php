@@ -42,7 +42,7 @@
                     </div>
                 </form>
                 <button class="modal-close is-large" aria-label="close" @click="clickNewPost"></button>
-            </div>
+                </div>
             </div>
         </div>
     </div>

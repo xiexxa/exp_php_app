@@ -30,19 +30,4 @@
 pg_free_result($R);
 pg_close($con);
 ?>
-<script>
-new Vue({
-  el: "#app",
-  data: {
-    msg: "Welcome"
-  },
-  methods: {
-    sayHello() {
-      this.msg = 'hello'
-    }
-  },
-  mounted () {
-
-  }
-});
-</script>
+<script type="text/javascript" src="js/app.js"></script>
