@@ -3,7 +3,7 @@ $my_follow_count = getFollowCount($con, $_SESSION['id']);
 $my_follower_count = getFollowerCount($con, $_SESSION['id']);
 ?>
 <div class="column is-3">
-    <menu class="is-hidden-touch" id="sidemenu">
+    <menu class="is-hidden-touch" id="sidemenu" style="margin: 0">
         <div class="hero is-info">
         <div class="hero-body">
             <article class="media">

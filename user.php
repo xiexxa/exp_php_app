@@ -34,7 +34,6 @@
     $sql = 'select id, body, user_id, created_at from articles where user_id = $1';
     $R = pg_query_params($con, $sql, array($user['id']));  
     $n = pg_num_rows($R);
-    echo $n;
     for ($i=$n-1; $i>=0; $i--) {
       $articles[] = pg_fetch_array($R, $i);
     }
@@ -47,7 +46,6 @@
     for ($i=0; $i<$n; $i++) {
       $follows[] = pg_fetch_array($R, $i);
     }
-    var_dump($follows);
   }
   if ($_GET['page'] == 'follower') {
     // フォローされているユーザ一覧を取得する
