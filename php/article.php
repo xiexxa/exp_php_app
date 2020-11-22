@@ -5,7 +5,7 @@ $R = pg_query_params($con, $sql, array($id));
 $usernames = pg_fetch_array($R); 
 ?>
 
-<article class="media">
+<article class="media" ref="<?php echo $article['id'] ?>">
     <figure class="media-left">
         <p class="image is-32x32">
         <img src="https://via.placeholder.com/32" alt="">
@@ -27,7 +27,7 @@ $usernames = pg_fetch_array($R);
         </div>
         <div class="level-right">
             <span class="is-size-7"><?php echo dateformat($article['created_at']) ?></span>
-            <span class="icon is-medium has-text-ghost" ref="<?php echo $article['id'] ?>" @click="deleteModalOpen(<?php echo $article['id'] ?>)">
+            <span class="icon is-medium has-text-ghost" @click="deleteModalOpen(<?php echo $article['id'] ?>)">
                 <i class="fas fa-trash"></i>
             </span>
         </div>

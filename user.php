@@ -209,7 +209,12 @@ new Vue({
         })
           .then(res => {
             console.log('Ajax received')
-            console.log(res.data)
+            console.log(res.data.status)
+            if (res.data.status === 0) {
+              console.log(this.$refs[this.deleteArticleId]);
+              this.deleteModal = true;
+              location.reload();
+            }
           })
       }
     }
