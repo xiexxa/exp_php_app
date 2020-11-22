@@ -7,9 +7,9 @@
     </div>
     <div class='navbar-end is-hidden-touch'>
         <div class="navbar-item">
-            <form class="field has-addons" method="get" action="search.php" style="margin: 0">
+            <form class="field has-addons" method="get" action="./search.php" style="margin: 0">
                 <div class="control">
-                    <input type="text" :class='[searchboxOverFlag === true ? "input is-hovered" : "input is-light"]' placeholder="検索ワードを入力" name="searchbox" v-on:mouseover="searchboxOver" v-on:mouseleave="searchboxOver">
+                    <input type="text" :class='[searchboxOverFlag === true ? "input is-hovered" : "input is-light"]' placeholder="検索ワードを入力" name="w" value="<?php echo $_GET['w'] ?>" v-on:mouseover="searchboxOver" v-on:mouseleave="searchboxOver">
                 </div>
                 <div class="control">
                     <input type="submit" class="button is-link is-light" value="検索">
