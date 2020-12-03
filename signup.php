@@ -1,5 +1,5 @@
 <?php
-  $title = 'Sign up';
+    $title = 'Sign Up'.' | Ordoozm';
   include './php/functions.php';
   $con = connect();
   $sql = "insert into users(name, screen_name, email, password, created_at, updated_at) values ($1, $2, $3, $4, $5, $6)";

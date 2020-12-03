@@ -1,5 +1,6 @@
 <?php
-  $title = $_GET['w'];
+  $title = $_GET['w'].'の検索結果'.' | Ordoozm';
+
   $is_login = false;
   include './php/functions.php';
   $con = connect();

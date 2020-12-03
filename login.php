@@ -1,5 +1,5 @@
 <?php
-  $title = 'Login';
+  $title = 'Login'.' | Ordoozm';
   $is_login = false;
   include './php/functions.php';
 
