@@ -18,11 +18,11 @@ $usernames = pg_fetch_array($R);
         </div>
         <nav class="level is-mobile">
         <div class="level-left">
-            <a href="" class="level-item">
-            <span>reply</span>
-            </a>
-            <a href="" class="level-item">
-            <span>Like</span>
+            <a class="level-item" @click="like(<?php echo $article['id'] ?>)">
+                <span class="icon is-medium has-text-dark">
+                    <i class="fas fa-heart"></i>
+                </span>
+                <span>0</span>
             </a>
         </div>
         <div class="level-right">

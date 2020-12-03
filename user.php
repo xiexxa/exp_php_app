@@ -216,6 +216,15 @@ new Vue({
               location.reload();
             }
           })
+      },
+      like: function (id) {
+        console.log(id)
+        axios.post('./php/api/like.php', {
+          id: id
+        })
+          .then(res => {
+            console.log(res.data)
+          })
       }
     }
 })
