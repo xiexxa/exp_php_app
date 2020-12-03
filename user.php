@@ -224,6 +224,9 @@ new Vue({
         })
           .then(res => {
             console.log(res.data)
+            let id = res.data.id
+            let status = res.data.status
+            console.log(this.$refs[id])
           })
       }
     }
