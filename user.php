@@ -196,6 +196,7 @@ new Vue({
           .then(res => {
             console.log('Ajax受信')
             console.log(res.data)
+            location.reload()
           })
       },
       deleteModalOpen: function (id) {
@@ -227,6 +228,7 @@ new Vue({
             let id = res.data.id
             let status = res.data.status
             console.log(this.$refs[id])
+            location.reload()
           })
       }
     }
