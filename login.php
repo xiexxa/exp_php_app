@@ -3,6 +3,13 @@
   $is_login = false;
   include './php/functions.php';
 
+  // ログイン時はリダイレクト
+  session_start();
+  $is_login = login_checker($is_login);
+  if ($is_login) {
+    redirect('index.php');
+  }
+
   $con = connect();
   $sql = 'select * from users where email = $1';
   $R = pg_query_params($con, $sql, array($_POST['email']));
