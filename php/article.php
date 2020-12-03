@@ -35,7 +35,7 @@ $like_count = pg_fetch_array($R);
                 </span>
                 <?php else : ?>
                 <span class="icon is-medium has-text-dark">
-                <i class="fas fa-heart"></i>
+                <i class="far fa-heart"></i>
                 </span>
                 <?php endif ?>
                 <span><?php echo $like_count['count'] ?></span>
