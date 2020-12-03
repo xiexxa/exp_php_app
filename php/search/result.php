@@ -1,9 +1,9 @@
-<div id="search">
+<div>
   <div class='has-background-light'>
     <div class='container has-background-white'>
       <div class="columns">
         <?php include './php/sidemenu.php'; ?>
-        <div class="column is-7">
+        <div class="column is-7" id="search">
           <div class="hero is-info is-bold">
               <div class="hero-body">
                   <div class="container">

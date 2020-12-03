@@ -14,6 +14,9 @@
       date("Y-m-d H:i:s")
     )
   );
+  if ($R != false) {
+    redirect('index.php');
+  }
 ?>
 <html>
   <?php include './php/head.php' ?>
@@ -27,16 +30,16 @@
             <form action="signup.php" method="post" class='content'>
                 <div class='field'>
                     <label class='label has-text-info-dark'>email</h2>
-                    <input type="email" name='email' class='input' placeholder='name@example.com'>
+                    <input type="email" name='email' class='input' placeholder='name@example.com' required>
                 </div>
                 <div class='field'>
                     <label class='label has-text-info-dark'>Password</h2>
-                    <input type="password" name='password' class='input'>
+                    <input type="password" name='password' class='input' required>
                     <label for="password" class='is-7 has-text-grey-dark has-text-weight-normal	'>半角英数を含む8文字以上</label>
                 </div>
                 <div class='field'>
                     <label class='label has-text-info-dark'>Re-type Password</h2>
-                    <input type="password" name='password-confirm' class='input'>
+                    <input type="password" name='password-confirm' class='input' required>
                 </div>
                 <div class='field'>
                     <div class='level'>

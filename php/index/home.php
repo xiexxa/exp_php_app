@@ -30,7 +30,7 @@ for ($i=0; $i<$n; $i++) {
   <div class='container has-background-white'>
     <div class="columns">
       <?php include './php/sidemenu.php'; ?>
-      <div class="column is-7">
+      <div class="column is-7"  id="home">
         <p>Main</p>
         <?php foreach ($articles as $article) : ?>
           <?php include './php/article.php' ?>
@@ -39,3 +39,28 @@ for ($i=0; $i<$n; $i++) {
     </div>
   </div>
 </div>
+<script>
+new Vue({
+    el: '#home',
+    data: {
+        logoutModal: true,
+        deleteArticleId: '',
+        deleteModal: true
+    },
+    methods:{
+      like: function (id) {
+        console.log(id)
+        axios.post('./php/api/like.php', {
+          id: id
+        })
+          .then(res => {
+            console.log(res.data)
+            let id = res.data.id
+            let status = res.data.status
+            console.log(this.$refs[id])
+            location.reload()
+          })
+      }
+    }
+})
+</script>

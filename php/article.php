@@ -18,7 +18,7 @@ $like_count = pg_fetch_array($R);
 <article class="media" ref="<?php echo $article['id'] ?>">
     <figure class="media-left">
         <p class="image is-32x32">
-        <img src="https://via.placeholder.com/32" alt="">
+        <a href="user.php?name=<?php xss($usernames['name']) ?>"><img src="./img/icon.png" alt=""></a>
         </p>
     </figure>
     <div class="media-content">
@@ -31,7 +31,7 @@ $like_count = pg_fetch_array($R);
             <a class="level-item" @click="like(<?php echo $article['id'] ?>)">
                 <?php if ($n > 0) : ?>
                 <span class="icon is-medium has-text-dark">
-                    <i class="fas fa-heart" style="color: pink"></i>
+                    <i class="fas fa-heart" style="color: coral"></i>
                 </span>
                 <?php else : ?>
                 <span class="icon is-medium has-text-dark">

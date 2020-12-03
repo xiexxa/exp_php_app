@@ -9,7 +9,7 @@ $my_follower_count = getFollowerCount($con, $_SESSION['id']);
             <article class="media">
             <figure class="media-left">
                 <p class="image is-32x32">
-                <img src="https://via.placeholder.com/32" alt="">
+                <img src="./img/icon.png" alt="">
                 </p>
             </figure>
             <div class="media-content">

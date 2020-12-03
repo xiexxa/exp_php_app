@@ -1,5 +1,5 @@
 <?php
-  $title = 'Top Page';
+  $title = $_GET['name'].' | Ordoozm';
   $is_login = false;
   include './php/functions.php';
   $con = connect();
