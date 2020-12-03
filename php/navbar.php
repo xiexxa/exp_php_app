@@ -6,6 +6,7 @@
     <a href="." class='navbar-item'><h3 class='is-size-4'>Title</h3></a>
     </div>
     <div class='navbar-end is-hidden-touch'>
+        <?php if (!empty($_SESSION)) : ?>
         <div class="navbar-item">
             <form class="field has-addons" method="get" action="./search.php" style="margin: 0">
                 <div class="control">
@@ -45,6 +46,7 @@
                 </div>
             </div>
         </div>
+        <?php endif ?>
     </div>
 </nav>
 
