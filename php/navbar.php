@@ -3,7 +3,7 @@
     <div class=' navbar-item is-hidden-desktop'>
         <p>menu</p>
     </div>
-    <a href="." class='navbar-item'><h3 class='is-size-4'>Title</h3></a>
+    <a href="." class='navbar-item'><h3 class='is-size-4'>Ordoozm</h3></a>
     </div>
     <div class='navbar-end is-hidden-touch'>
         <?php if (!empty($_SESSION)) : ?>

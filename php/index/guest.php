@@ -1,7 +1,7 @@
 <div class='hero is-info is-bold'>
   <div class='container'>
     <div class='hero-body'>
-      <h1 class='title'>Title</h1>
+      <h1 class='title'>Ordoozm</h1>
       <div class='level'>
         <div class='level-item'>
             <a href="login.php" class='button is-large is-info is-inverted is-outlined'>Login</a>
