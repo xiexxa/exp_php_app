@@ -16,7 +16,11 @@
     $n = pg_num_rows($R);
     if ($n > 0) {
         // いいね済み
-        
+        $sql = 'delete from likes where like_user_id = $1 and liked_article_id = $2';
+        $R = pg_query_params($con, $sql, array($_SESSION['id'], $id));
+        if ($R != false) {
+            $status = 2;
+        }
     } else {
         // まだいいねしていない
         $sql = 'insert into likes(like_user_id, liked_article_id, created_at, updated_at) values ($1, $2, $3, $4)';

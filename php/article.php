@@ -3,6 +3,16 @@ $id = $article['user_id'];
 $sql = 'select name, screen_name from users where id = $1';
 $R = pg_query_params($con, $sql, array($id));  
 $usernames = pg_fetch_array($R); 
+
+// いいね済みかどうか
+$sql = 'select id from likes where like_user_id = $1 and liked_article_id = $2';
+$R = pg_query_params($con, $sql, array($_SESSION['id'], $article['id']));
+$n = pg_num_rows($R);
+
+// いいねの数
+$sql = 'select count(*) from likes where liked_article_id = $1';
+$R = pg_query_params($con, $sql, array($article['id']));
+$like_count = pg_fetch_array($R); 
 ?>
 
 <article class="media" ref="<?php echo $article['id'] ?>">
@@ -19,10 +29,16 @@ $usernames = pg_fetch_array($R);
         <nav class="level is-mobile">
         <div class="level-left">
             <a class="level-item" @click="like(<?php echo $article['id'] ?>)">
+                <?php if ($n > 0) : ?>
                 <span class="icon is-medium has-text-dark">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" style="color: pink"></i>
                 </span>
-                <span>0</span>
+                <?php else : ?>
+                <span class="icon is-medium has-text-dark">
+                <i class="fas fa-heart"></i>
+                </span>
+                <?php endif ?>
+                <span><?php echo $like_count['count'] ?></span>
             </a>
         </div>
         <div class="level-right">
